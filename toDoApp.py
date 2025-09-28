@@ -19,21 +19,21 @@ def removetask(tasknumber):
 
 def main():
     while True:
-        print("1 Add Task")
-        print("2.Show Tasks")
-        print("3.Remove Task")
-        print("4- Exit")
-        ch = input("enter choice : ")
+        print("1. Add Task")
+        print("2. Show Tasks")
+        print("3. Remove Task")
+        print("4. Exit")
+        ch = input("Enter choice: ")
         if ch=="1":
-            t = input("enter task : ")
+            t = input("Enter task: ")
             addtask(t)
         elif ch=="2":
             showTasks()
         elif ch=="3":
-            n=int(input("enter task no to remove: "))
+            n=int(input("Enter task no to remove: "))
             removetask(n)   
         elif ch=="4":
-            break;
+            break
         else:
-            print("wrong choice!!")
+            print("Invalid choice!")
 main()
