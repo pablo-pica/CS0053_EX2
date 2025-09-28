@@ -33,7 +33,7 @@ def main():
             n=int(input("Enter a task number to be removed : "))
             removetask(n)   
         elif ch=="4":
-            break;
+            break
         else:
             print("Invalid choice.")
 main()
