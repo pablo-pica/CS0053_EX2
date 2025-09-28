@@ -23,8 +23,21 @@ def show_tasks():
             print(i+1, ".", tasks[i])
 
 def remove_task(task_number):
-    tasks.pop(task_number) 
-    print("Task removed successfully!!")
+    if task_number < 0 or task_number > len(tasks):
+        print("Invalid task number.")
+        return
+    
+    print("Task to be removed:", tasks[task_number - 1])
+    print("Are you sure you want to remove this task? (y/n)")
+    confirmation = input().lower()
+    
+    if confirmation == 'y':
+        tasks.pop(task_number - 1)
+        print("Task removed successfully!")
+    elif confirmation == 'n':
+        print("Task removal cancelled.")
+    else:
+        print("Invalid input. Task removal cancelled.")
 
 def main():
     while True:
@@ -46,6 +59,7 @@ def main():
             case "3":
                 task_number = int(input("Enter a task number to be removed: "))
                 remove_task(task_number)
+                wait_for_key()
             case "4":
                 break
             case _:
