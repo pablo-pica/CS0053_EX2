@@ -1,8 +1,12 @@
 # toDoApp.py
 # by Agustin, Chan, and Valencia of TN36
+import os
 
 tasks=[]
 
+def clearTerminal():
+    os.system('cls' if os.name == 'nt' else 'clear')
+    
 def addTask(new_task):
     tasks.append(new_task)
     print("Task added successfully!")
@@ -26,7 +30,8 @@ def main():
         print("[4] Exit")
         
         choice = input("Enter choice: ")
-            
+        clearTerminal()
+        
         match choice:
             case "1":
                 new_task = input("Enter a task: ")
