@@ -5,17 +5,36 @@ import os
 tasks=[] #list to store the tasks thatll be listed
 
 def clear_terminal():
-    os.system('cls' if os.name == 'nt' else 'clear') #clearing of terminal screen
+    """
+        Clearing of terminal screen.
+    """
+    os.system('cls' if os.name == 'nt' else 'clear') 
     
-def wait_for_key(): #pause program until user inputs enter
+def wait_for_key():
+    """
+        Pause program until user inputs enter
+    """
     input("\nPress Enter to continue...")
     clear_terminal()
     
-def add_task(new_task): #adds new task to the list
-    tasks.append(new_task) #append task to the list ; append is the most common adding within lists)
+def add_task(new_task):
+
+    """ This is for adding a task within the list
+
+    Args:
+        new_task (str): append task to the list ; append is the most common adding within lists)
+    """
+
+    tasks.append(new_task)
     print("Task added successfully!")
 
-def show_tasks(): #displays all tasks
+def show_tasks():
+
+    """Display tasks in the task list.
+
+    If no tasks are present, a message is displayed that there are no tasks yet.
+    """
+
     if len(tasks) == 0: #if task's list is empty/0, print no tasks added yet.
         print("No tasks added yet.")
     else:
@@ -23,6 +42,13 @@ def show_tasks(): #displays all tasks
             print(f"[{i+1}] {tasks[i]}")
 
 def remove_task(): #removes a task from the list 
+
+    """Removes a task from the task list.
+
+    Prompts the user to select a numbered task,
+    and handles invalid inputs and cancellation.
+    """
+
     if len(tasks) == 0: #if list is 0/empty, print no task to remove.
         print("No tasks to remove.")
         return
@@ -51,6 +77,28 @@ def remove_task(): #removes a task from the list
     
     if confirmation == 'y':
         tasks.pop(task_number - 1) #remove chosen task by popping
+        print("Task removed successfully!")
+    elif confirmation == 'n':
+        print("Task removal cancelled.")
+    else:
+        print("Invalid input. Task removal cancelled.")
+
+def main():
+    """Main program loop.
+
+    Displays a menu for task management and executes user-selected actions:
+        [1] Add Task
+        [2] Show Tasks
+        [3] Remove Task
+        [4] Exit
+    """
+        
+    while True:
+        print("[1] Add Task")
+        print("[2] Show Tasks")
+        print("[3] Remove Task")
+        print("[4] Exit")
+
         choice = input("Enter choice: ") #ask user for option
         clear_terminal()
         
