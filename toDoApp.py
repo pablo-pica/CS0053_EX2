@@ -6,7 +6,6 @@ tasks=[]
 
 def clear_terminal():
     os.system('cls' if os.name == 'nt' else 'clear')
-    
 def wait_for_key():
     input("\nPress Enter to continue...")
     clear_terminal()
@@ -27,7 +26,6 @@ def remove_task():
         print("No tasks to remove.")
         return
     show_tasks()
-    
     while True:
         user_input = input("\nEnter a task number to be removed: ")
 
@@ -39,8 +37,7 @@ def remove_task():
             if task_number < 1 or task_number > len(tasks):
                 print("Invalid task number. Please enter a number between 1 and", len(tasks))
                 continue
-            break 
-            
+            break
         except ValueError:
             print("Invalid input. Please enter a whole number.")
             continue
@@ -48,7 +45,6 @@ def remove_task():
     print("Task to be removed:", tasks[task_number - 1])
     print("Are you sure you want to remove this task? (y/n)")
     confirmation = input().lower()
-    
     if confirmation == 'y':
         tasks.pop(task_number - 1)
         print("Task removed successfully!")
@@ -63,10 +59,8 @@ def main():
         print("[2] Show Tasks")
         print("[3] Remove Task")
         print("[4] Exit")
-        
         choice = input("Enter choice: ")
         clear_terminal()
-        
         match choice:
             case "1":
                 new_task = input("Enter a task: ")
