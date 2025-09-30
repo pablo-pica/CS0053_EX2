@@ -9,14 +9,14 @@ def clear_terminal():
         Clearing of terminal screen.
     """
     os.system('cls' if os.name == 'nt' else 'clear') 
-    
+
 def wait_for_key():
     """
         Pause program until user inputs enter
     """
     input("\nPress Enter to continue...")
     clear_terminal()
-    
+
 def add_task(new_task):
 
     """ This is for adding a task within the list
@@ -37,8 +37,8 @@ def show_tasks():
     if len(tasks) == 0: #if task's list is empty/0, print no tasks added yet.
         print("No tasks added yet.")
     else:
-        for i in range (len(tasks)): #else if it already have, loop through the list and print it
-            print(f"[{i+1}] {tasks[i]}")
+        for i, task in enumerate(tasks):    #else if it already have, loop through the list and print it
+            print(f"[{i+1}] {task}")
 
 def remove_task(): #removes a task from the list 
 
@@ -51,7 +51,6 @@ def remove_task(): #removes a task from the list
         print("No tasks to remove.")
         return
     show_tasks() #show task for user to pick what to remove
-    
     while True: #ask until valid input is entered
         user_input = input("\nEnter a task number to be removed: ")
 
@@ -64,7 +63,6 @@ def remove_task(): #removes a task from the list
                 print("Invalid task number. Please enter a number between 1 and", len(tasks))
                 continue
             break #if valid input, exit loop
-            
         except ValueError: #if input not a number
             print("Invalid input. Please enter a whole number.")
             continue
@@ -72,7 +70,6 @@ def remove_task(): #removes a task from the list
     print("Task to be removed:", tasks[task_number - 1])
     print("Are you sure you want to remove this task? (y/n)")
     confirmation = input().lower()
-    
     if confirmation == 'y':
         tasks.pop(task_number - 1) #remove chosen task by popping
         print("Task removed successfully!")
@@ -90,7 +87,6 @@ def main():
         [3] Remove Task
         [4] Exit
     """
-        
     while True:
         print("[1] Add Task")
         print("[2] Show Tasks")
@@ -99,7 +95,6 @@ def main():
 
         choice = input("Enter choice: ") #ask user for option
         clear_terminal()
-        
         match choice:
             case "1": #add a task
                 new_task = input("Enter a task: ")
@@ -111,6 +106,7 @@ def main():
                 remove_task()
                 wait_for_key()
             case "4": #exit program
+                print("Thank you for using the To-Do App. Goodbye!")
                 break
             case _: #catch invalid inputs
                 print("Invalid choice.")
