@@ -51,19 +51,6 @@ def remove_task(): #removes a task from the list
     
     if confirmation == 'y':
         tasks.pop(task_number - 1) #remove chosen task by popping
-        print("Task removed successfully!")
-    elif confirmation == 'n':
-        print("Task removal cancelled.")
-    else:
-        print("Invalid input. Task removal cancelled.")
-
-def main():
-    while True:
-        print("[1] Add Task")
-        print("[2] Show Tasks")
-        print("[3] Remove Task")
-        print("[4] Exit")
-        
         choice = input("Enter choice: ") #ask user for option
         clear_terminal()
         
