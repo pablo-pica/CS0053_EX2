@@ -98,7 +98,7 @@ def main():
         print("[2] Show Tasks")
         print("[3] Remove Task")
         print("[4] Exit")
-        
+
         choice = input("Enter choice: ") #ask user for option
         clear_terminal()
         
